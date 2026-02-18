@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+<body>
+
+<div class="form-container">
+
+    <h1>📝 Registration Form</h1>
+
+    <input id="name" placeholder="Enter Name">
+    <p class="error" id="nameError"></p>
+
+    <input id="email" placeholder="Enter Email">
+    <p class="error" id="emailError"></p>
+
+    <input id="age" type="number" placeholder="Enter Age">
+    <p class="error" id="ageError"></p>
+
+    <input id="password" type="password" placeholder="Enter Password">
+    <p class="error" id="passError"></p>
+
+    <button onclick="validateForm()">Register</button>
+
+    <p id="successMsg"></p>
+
+</div>
+
+<script src="form.js"></script>
+</body>
+</html>
