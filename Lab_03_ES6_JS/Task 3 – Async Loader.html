@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Async Loader</h2>
+<p id="users">Loading...</p>
+
+<script>
+function fetchUsers(){
+return new Promise((res,rej)=>{
+let ok=true;
+setTimeout(()=>{
+ok?res([{name:"Ali"},{name:"Areej"}]):rej("Error");
+},3000);
+});
+}
+
+fetchUsers()
+.then(d=>document.getElementById("users").innerHTML=
+d.map(u=>u.name).join(", "))
+.catch(e=>document.getElementById("users").innerHTML=e);
+</script>
+</body>
+</html>

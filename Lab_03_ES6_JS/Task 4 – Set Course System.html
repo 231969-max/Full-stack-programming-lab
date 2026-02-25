@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Unique Courses</h2>
+<p id="courses"></p>
+
+<script>
+let set=new Set();
+set.add("AI");
+set.add("Web");
+set.add("AI");
+
+let list="";
+for(let c of set) list+=c+" ";
+
+document.getElementById("courses").innerHTML =
+`Courses:${list}<br>Total:${set.size}`;
+</script>
+</body>
+</html>

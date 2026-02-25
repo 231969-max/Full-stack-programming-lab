@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Product Catalog</h2>
+<p id="products"></p>
+
+<script>
+let products=new Map();
+products.set(1,{name:"Phone"});
+products.set(2,{name:"Laptop"});
+products.set(3,{name:"Watch"});
+products.set(4,{name:"Shoes"});
+products.set(5,{name:"Bag"});
+
+let found=products.get(3);
+products.delete(5);
+
+document.getElementById("products").innerHTML =
+`Found:${found.name}<br>Total:${products.size}`;
+</script>
+</body>
+</html>

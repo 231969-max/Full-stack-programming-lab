@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>JSON Students</h2>
+<p id="json"></p>
+
+<script>
+let students=[
+{name:"Areej",age:20,semester:5,courses:["AI"]},
+{name:"Sara",age:19,semester:3,courses:["DB"]},
+{name:"Laila",age:21,semester:6,courses:["ML"]}
+];
+
+let json=JSON.stringify(students);
+let obj=JSON.parse(json);
+
+document.getElementById("json").innerHTML =
+obj.map(s=>{
+let {name,semester}=s;
+return `${name} - Semester ${semester}`;
+}).join("<br>");
+</script>
+</body>
+</html>

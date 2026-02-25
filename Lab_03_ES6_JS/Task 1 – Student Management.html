@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Student Management System</h2>
+<p id="students"></p>
+
+<script>
+class Student{
+constructor(id,name,semester,courses){
+this.id=id;
+this.name=name;
+this.semester=semester;
+this.courses=courses;
+}
+}
+
+const s1=new Student(1,"Areej",5,["AI","Web"]);
+const s2=new Student(2,"Sara",3,["DB","OS"]);
+const s3=new Student(3,"Laila",6,["ML","SE"]);
+
+let students=[s1,s2,s3];
+
+document.getElementById("students").innerHTML =
+students.map(s=>`ID:${s.id} Name:${s.name} Semester:${s.semester}
+Courses:${s.courses.join(", ")}<br>`).join("");
+</script>
+</body>
+</html>
