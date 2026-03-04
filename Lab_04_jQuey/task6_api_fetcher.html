@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Advanced Chained Style Editor</title>
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eef1f5;
+            padding: 40px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 15px;
+        }
+
+        .controls {
+            margin-bottom: 20px;
+        }
+
+        button, select {
+            padding: 8px 12px;
+            margin: 5px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            transition: 0.3s;
+        }
+
+        button:hover, select:hover {
+            background-color: #0056b3;
+        }
+
+        .active {
+            background-color: #28a745 !important;
+        }
+
+        #textBlock {
+            max-width: 600px;
+            margin: auto;
+            padding: 25px;
+            background: white;
+            border-radius: 12px;
+            font-size: 16px;
+            box-shadow: 0px 6px 15px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Advanced Chained Style Editor</h2>
+<p>Modify text styles dynamically using jQuery chaining</p>
+
+<div class="controls">
+    <button id="incFont">A+</button>
+    <button id="decFont">A-</button>
+    <button id="boldBtn">Bold</button>
+    <button id="italicBtn">Italic</button>
+    <button id="textColor">Text Color</button>
+    <button id="bgColor">Background</button>
+
+    <select id="fontFamily">
+        <option value="">Font Family</option>
+        <option value="Arial">Arial</option>
+        <option value="Georgia">Georgia</option>
+        <option value="Courier New">Courier New</option>
+        <option value="Times New Roman">Times New Roman</option>
+    </select>
+
+    <button id="resetBtn">Reset</button>
+</div>
+
+<div id="textBlock">
+    This is a sample text. Use the buttons above to dynamically change my style using jQuery chaining.
+</div>
+
+<script>
+$(document).ready(function(){
+
+    let fontSize = 16;
+
+    $("#incFont").click(function(){
+        fontSize += 2;
+        $("#textBlock")
+            .css("font-size", fontSize + "px")
+            .fadeOut(100)
+            .fadeIn(100);
+    });
+
+    $("#decFont").click(function(){
+        fontSize -= 2;
+        $("#textBlock")
+            .css("font-size", fontSize + "px")
+            .fadeOut(100)
+            .fadeIn(100);
+    });
+
+    $("#boldBtn").click(function(){
+        $("#textBlock")
+            .css("font-weight", function(i, val){
+                return val === "700" ? "normal" : "bold";
+            });
+        $(this).toggleClass("active");
+    });
+
+    $("#italicBtn").click(function(){
+        $("#textBlock")
+            .css("font-style", function(i, val){
+                return val === "italic" ? "normal" : "italic";
+            });
+        $(this).toggleClass("active");
+    });
+
+    $("#textColor").click(function(){
+        $("#textBlock")
+            .css("color", "#" + Math.floor(Math.random()*16777215).toString(16))
+            .slideUp(120)
+            .slideDown(120);
+    });
+
+    $("#bgColor").click(function(){
+        $("#textBlock")
+            .css("background-color", "#" + Math.floor(Math.random()*16777215).toString(16))
+            .fadeOut(120)
+            .fadeIn(120);
+    });
+
+    $("#fontFamily").change(function(){
+        $("#textBlock")
+            .css("font-family", $(this).val())
+            .fadeOut(100)
+            .fadeIn(100);
+    });
+
+    $("#resetBtn").click(function(){
+        fontSize = 16;
+        $("#textBlock")
+            .removeAttr("style")
+            .hide()
+            .fadeIn(300);
+
+        $("button").removeClass("active");
+        $("#fontFamily").val("");
+    });
+
+});
+</script>
+
+</body>
+</html>

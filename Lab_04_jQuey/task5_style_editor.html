@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chained Style Editor</title>
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            padding: 40px;
+            background-color: #f4f4f4;
+        }
+
+        #textBlock {
+            margin: 20px auto;
+            padding: 20px;
+            width: 500px;
+            background-color: white;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+
+        button {
+            padding: 8px 12px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        .activeStyle {
+            background-color: #007bff;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Chained Style Editor</h2>
+
+<div>
+    <button id="increaseSize">Increase Font</button>
+    <button id="decreaseSize">Decrease Font</button>
+    <button id="toggleBold">Bold</button>
+    <button id="toggleItalic">Italic</button>
+    <button id="changeColor">Change Text Color</button>
+    <button id="changeBg">Change Background</button>
+    <button id="resetStyle">Reset</button>
+</div>
+
+<div id="textBlock">
+    This is a sample text. Use the buttons above to modify my style using jQuery chaining!
+</div>
+
+<script>
+$(document).ready(function(){
+
+    let fontSize = 16;
+
+    $("#increaseSize").click(function(){
+        fontSize += 2;
+        $("#textBlock")
+            .css("font-size", fontSize + "px")
+            .fadeOut(100)
+            .fadeIn(100);
+    });
+
+    $("#decreaseSize").click(function(){
+        fontSize -= 2;
+        $("#textBlock")
+            .css("font-size", fontSize + "px")
+            .fadeOut(100)
+            .fadeIn(100);
+    });
+
+    $("#toggleBold").click(function(){
+        $("#textBlock")
+            .css("font-weight", function(i, val){
+                return val === "700" ? "normal" : "bold";
+            });
+        $(this).toggleClass("activeStyle");
+    });
+
+    $("#toggleItalic").click(function(){
+        $("#textBlock")
+            .css("font-style", function(i, val){
+                return val === "italic" ? "normal" : "italic";
+            });
+        $(this).toggleClass("activeStyle");
+    });
+
+    $("#changeColor").click(function(){
+        $("#textBlock")
+            .css("color", "#" + Math.floor(Math.random()*16777215).toString(16))
+            .slideUp(100)
+            .slideDown(100);
+    });
+
+    $("#changeBg").click(function(){
+        $("#textBlock")
+            .css("background-color", "#" + Math.floor(Math.random()*16777215).toString(16))
+            .fadeOut(100)
+            .fadeIn(100);
+    });
+
+    $("#resetStyle").click(function(){
+        fontSize = 16;
+        $("#textBlock")
+            .removeAttr("style")
+            .hide()
+            .fadeIn(300);
+
+        $("button").removeClass("activeStyle");
+    });
+
+});
+</script>
+
+</body>
+</html>
