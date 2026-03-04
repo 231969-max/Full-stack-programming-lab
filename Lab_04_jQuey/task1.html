@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart To-Do Manager</title>
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f6f9;
+            padding: 40px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        input {
+            padding: 8px;
+            width: 250px;
+        }
+
+        button {
+            padding: 8px 12px;
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+            width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        li {
+            background: white;
+            padding: 10px;
+            margin-bottom: 8px;
+            border-radius: 5px;
+            text-align: left;
+            position: relative;
+            transition: 0.3s;
+        }
+
+        li.completed {
+            text-decoration: line-through;
+            background: #d4edda;
+        }
+
+        li:hover {
+            background: #e9f5ff;
+        }
+
+        .deleteBtn {
+            background: red;
+            color: white;
+            border: none;
+            float: right;
+        }
+
+        .editBtn {
+            background: orange;
+            color: white;
+            border: none;
+            float: right;
+            margin-right: 5px;
+        }
+
+        .counter {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        .filterBtn {
+            background: #007bff;
+            color: white;
+        }
+
+        .error {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Smart To-Do Manager</h2>
+
+<input type="text" id="taskInput" placeholder="Enter task">
+<button id="addTask">Add Task</button>
+
+<p class="error"></p>
+
+<div>
+    <button class="filterBtn" data-filter="all">All</button>
+    <button class="filterBtn" data-filter="completed">Completed</button>
+    <button class="filterBtn" data-filter="pending">Pending</button>
+</div>
+
+<ul id="taskList"></ul>
+
+<div class="counter">
+    Total: <span id="totalCount">0</span> |
+    Completed: <span id="completedCount">0</span>
+</div>
+
+<script>
+$(document).ready(function(){
+
+    function updateCounter() {
+        let total = $("#taskList li").length;
+        let completed = $("#taskList li.completed").length;
+
+        $("#totalCount").text(total);
+        $("#completedCount").text(completed);
+    }
+
+    $("#addTask").click(function(){
+
+        let taskText = $("#taskInput").val().trim();
+
+        if(taskText === ""){
+            $(".error").text("Task cannot be empty!");
+            return;
+        }
+
+        $(".error").text("");
+
+        $("#taskList").append(`
+            <li>
+                <span class="taskText">${taskText}</span>
+                <button class="deleteBtn">Delete</button>
+                <button class="editBtn">Edit</button>
+            </li>
+        `).hide().slideDown(300);
+
+        $("#taskInput").val("");
+        updateCounter();
+    });
+
+    // Mark Complete
+    $("#taskList").on("click", "li", function(e){
+        if(!$(e.target).is("button")){
+            $(this).toggleClass("completed");
+            updateCounter();
+        }
+    });
+
+    // Delete with fadeOut
+    $("#taskList").on("click", ".deleteBtn", function(){
+        $(this).parent().fadeOut(400, function(){
+            $(this).remove();
+            updateCounter();
+        });
+    });
+
+    // Edit
+    $("#taskList").on("click", ".editBtn", function(){
+
+        let li = $(this).parent();
+        let textSpan = li.find(".taskText");
+        let currentText = textSpan.text();
+
+        let newText = prompt("Edit Task:", currentText);
+
+        if(newText !== null && newText.trim() !== ""){
+            textSpan.text(newText);
+        }
+    });
+
+    // Filter
+    $(".filterBtn").click(function(){
+
+        let filter = $(this).data("filter");
+
+        if(filter === "all"){
+            $("#taskList li").show();
+        }
+        else if(filter === "completed"){
+            $("#taskList li").hide();
+            $("#taskList li.completed").show();
+        }
+        else {
+            $("#taskList li").hide();
+            $("#taskList li").not(".completed").show();
+        }
+
+    });
+
+});
+</script>
+
+</body>
+</html>

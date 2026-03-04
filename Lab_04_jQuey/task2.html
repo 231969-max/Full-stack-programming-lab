@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Advanced Animated Gallery</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background: #f4f4f4;
+            padding: 40px;
+        }
+
+        #gallery {
+            width: 600px;
+            margin: auto;
+            position: relative;
+        }
+
+        #mainImage {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        #caption {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        #counter {
+            margin-top: 5px;
+        }
+
+        .thumb {
+            width: 100px;
+            margin: 5px;
+            cursor: pointer;
+            opacity: 0.6;
+            border-radius: 5px;
+        }
+
+        .activeThumb {
+            border: 3px solid #007bff;
+            opacity: 1;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Advanced Animated Image Gallery</h2>
+
+<div id="gallery">
+    <img id="mainImage" src="">
+    <div id="caption"></div>
+    <div id="counter"></div>
+</div>
+
+<button id="prevBtn">Previous</button>
+<button id="nextBtn">Next</button>
+
+<div id="thumbnails"></div>
+
+<script>
+$(document).ready(function(){
+
+    let images = [
+        {src: "https://picsum.photos/id/1015/600/350", caption: "Mountain View"},
+        {src: "https://picsum.photos/id/1025/600/350", caption: "Cute Dog"},
+        {src: "https://picsum.photos/id/1035/600/350", caption: "Lake Side"},
+        {src: "https://picsum.photos/id/1043/600/350", caption: "Forest Road"}
+    ];
+
+    let index = 0;
+    let interval;
+
+    function showImage(i){
+        $("#mainImage").fadeOut(400, function(){
+            $(this).attr("src", images[i].src).fadeIn(400);
+        });
+
+        $("#caption").text(images[i].caption);
+        $("#counter").text(`Image ${i+1} of ${images.length}`);
+
+        $(".thumb").removeClass("activeThumb");
+        $(".thumb").eq(i).addClass("activeThumb");
+    }
+
+    function startAutoSlide(){
+        interval = setInterval(function(){
+            index = (index + 1) % images.length;
+            showImage(index);
+        }, 3000);
+    }
+
+    function stopAutoSlide(){
+        clearInterval(interval);
+    }
+
+    // Generate Thumbnails
+    images.forEach(function(img, i){
+        $("#thumbnails").append(
+            `<img src="${img.src}" class="thumb" data-index="${i}">`
+        );
+    });
+
+    // Thumbnail click
+    $("#thumbnails").on("click", ".thumb", function(){
+        index = $(this).data("index");
+        showImage(index);
+    });
+
+    $("#nextBtn").click(function(){
+        index = (index + 1) % images.length;
+        showImage(index);
+    });
+
+    $("#prevBtn").click(function(){
+        index = (index - 1 + images.length) % images.length;
+        showImage(index);
+    });
+
+    $("#gallery").hover(stopAutoSlide, startAutoSlide);
+
+    showImage(index);
+    startAutoSlide();
+
+});
+</script>
+
+</body>
+</html>
