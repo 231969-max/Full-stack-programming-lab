@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
+.counter-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  font-family: 'Inter', sans-serif;
+  padding: 20px;
+}
+
+.counter-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 48px 56px;
+  text-align: center;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+  max-width: 480px;
+  width: 100%;
+}
+
+.counter-title {
+  font-size: 2rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #a78bfa, #818cf8, #6366f1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0 0 4px 0;
+}
+
+.counter-subtitle {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 0.9rem;
+  margin: 0 0 32px 0;
+}
+
+.counter-display {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 32px;
+  margin-bottom: 32px;
+}
+
+.count-value {
+  font-size: 5rem;
+  font-weight: 800;
+  color: #e0e7ff;
+  transition: all 0.3s ease;
+  display: block;
+  line-height: 1;
+}
+
+.count-value.zero {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.counter-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  color: white;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.btn-icon {
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.btn-increment {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+}
+
+.btn-increment:hover:not(:disabled) {
+  background: linear-gradient(135deg, #7c7ff7, #a78bfa);
+}
+
+.btn-decrement {
+  background: linear-gradient(135deg, #ef4444, #f97316);
+}
+
+.btn-decrement:hover:not(:disabled) {
+  background: linear-gradient(135deg, #f87171, #fb923c);
+}
+
+.btn-reset {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.btn-reset:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.counter-info {
+  margin-top: 24px;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 0.85rem;
+}
