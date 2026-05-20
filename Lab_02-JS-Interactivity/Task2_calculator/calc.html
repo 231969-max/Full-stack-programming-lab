@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Interactive Calculator</title>
+    <link rel="stylesheet" href="calc.css">
+</head>
+<body>
+
+<div class="calculator">
+
+    <h1>🧮 Interactive Calculator</h1>
+
+    <div class="inputs">
+        <input id="num1" type="number" placeholder="Enter first number">
+
+        <select id="operation">
+            <option value="+">Addition (+)</option>
+            <option value="-">Subtraction (-)</option>
+            <option value="*">Multiplication (*)</option>
+            <option value="/">Division (/)</option>
+        </select>
+
+        <input id="num2" type="number" placeholder="Enter second number">
+    </div>
+
+    <button onclick="calculate()">Calculate</button>
+    <button onclick="resetCalc()" class="reset">Reset</button>
+
+    <div id="resultBox">Result will appear here</div>
+
+</div>
+
+<script src="calc.js"></script>
+</body>
+</html>

@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HotSpring Portable Spas - Home</title>
+
+    <style>
+        /* CSS Reset & General Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background: #e1e9ed url('https://images.unsplash.com/photo-1542385151-efd9000785a0?q=80&w=2689&auto=format&fit=crop') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .page-wrapper {
+            max-width: 960px;
+            margin: 0 auto;
+            background: #ffffff;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .container {
+            width: 92%;
+            margin: 0 auto;
+        }
+
+        .flex-between {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Top bar */
+        .top-bar {
+            background: #fdfdfd;
+            font-size: 11px;
+            padding: 8px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .support-text .highlight {
+            color: #df181e;
+            font-weight: bold;
+        }
+
+        .top-links a {
+            color: #666;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        .top-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main Header */
+        .main-header {
+            padding: 15px 0 0 0;
+            background: #ffffff;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            padding-bottom: 10px;
+        }
+
+        .logo-hotspring {
+            font-size: 26px;
+            color: #2b3952;
+            letter-spacing: 1px;
+        }
+
+        .logo-spas {
+            font-size: 12px;
+            color: #df181e;
+            text-transform: uppercase;
+            font-weight: normal;
+            padding-left: 60px;
+        }
+
+        .logo sup {
+            font-size: 10px;
+            color: #555;
+        }
+
+        .top-menu-cart-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        .cart-dropdown {
+            border: 1px solid #d4d4d4;
+            padding: 5px 12px;
+            font-size: 11px;
+            color: #444;
+            cursor: pointer;
+            background: #fcfcfc;
+            margin-bottom: 10px;
+        }
+
+        .cart-icon {
+            color: #df181e;
+            font-size: 14px;
+            margin-right: 5px;
+        }
+
+        .top-nav {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .top-nav a {
+            text-decoration: none;
+            color: #444;
+            font-size: 11px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .top-nav a.active {
+            color: #df181e;
+        }
+
+        .top-nav a:hover {
+            color: #df181e;
+        }
+
+        /* Red Navigation Bar */
+        .main-nav {
+            background: #df181e;
+            color: #ffffff;
+            border-bottom: 3px solid #b81216;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 12px 15px 12px 0;
+            display: block;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .search-bar {
+            display: flex;
+        }
+
+        .search-bar input {
+            padding: 8px 10px;
+            border: 1px solid #ffffff;
+            outline: none;
+            width: 250px;
+            font-size: 11px;
+        }
+
+        .search-btn {
+            background: #404040;
+            color: #ffffff;
+            border: none;
+            padding: 8px 15px;
+            cursor: pointer;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        /* Hero Banner */
+        .hero {
+            position: relative;
+            background: url('https://images.unsplash.com/photo-1560067174-c5a3a8f37060?auto=format&fit=crop&q=80&w=1200') no-repeat center center;
+            background-size: cover;
+            height: 380px;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Dark overlay for better text readability */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            padding-left: 40px;
+            color: #fff;
+            max-width: 500px;
+        }
+
+        .hero-content h2 {
+            font-size: 28px;
+            font-weight: bold;
+            line-height: 1.2;
+            color: #df181e;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.7);
+        }
+
+        .hero-content p {
+            font-size: 12px;
+            margin-bottom: 20px;
+            color: #222;
+            font-weight: bold;
+            text-shadow: 0px 0px 3px rgba(255, 255, 255, 0.8);
+        }
+
+        .hero-price {
+            font-size: 26px;
+            font-weight: bold;
+            color: #222;
+            margin-bottom: 10px;
+        }
+
+        .btn-red {
+            background: #df181e;
+            color: #fff;
+            border: none;
+            padding: 8px 20px;
+            font-size: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        .btn-red:hover {
+            background: #ba1216;
+        }
+
+        .slider-dots {
+            position: absolute;
+            bottom: 20px;
+            right: 40px;
+            display: flex;
+            gap: 8px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            background: #fff;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .dot.active {
+            background: #df181e;
+        }
+
+        /* Promo Banners Under Hero */
+        .promo-banners {
+            display: flex;
+            height: 120px;
+        }
+
+        .promo {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .promo h3 {
+            font-size: 22px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            z-index: 2;
+        }
+
+        .promo p {
+            font-size: 9px;
+            z-index: 2;
+            text-transform: uppercase;
+        }
+
+        .promo-img {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 80px;
+            height: auto;
+            z-index: 1;
+            opacity: 0.8;
+        }
+
+        .promo-1 {
+            background: #0b2246;
+        }
+
+        /* Navy */
+        .promo-2 {
+            background: #3b4e64;
+        }
+
+        /* Lighter Navy/Grayish */
+        .promo-3 {
+            background: #df181e;
+            justify-content: flex-start;
+            padding-top: 15px;
+        }
+
+        /* Red */
+
+        .promo-3 h3 {
+            font-size: 32px;
+            line-height: 1;
+        }
+
+        .promo-3 h3 small {
+            display: block;
+            font-size: 36px;
+        }
+
+        /* Products Grid */
+        .main-content {
+            background: #fbfbfb;
+            padding: 30px 4%;
+        }
+
+        .section-title {
+            font-size: 16px;
+            color: #2b3952;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .product-card {
+            background: #fff;
+            border: 1px solid #e5e5e5;
+            padding: 15px;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 120px;
+            object-fit: contain;
+            margin-bottom: 15px;
+            background: #fff;
+        }
+
+        /* Using emojis as placeholders since I can't serve local images */
+        .product-image-placeholder {
+            width: 100%;
+            height: 120px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            background: #f9f9f9;
+            border: 1px dashed #ddd;
+        }
+
+        .product-title {
+            font-size: 10px;
+            font-weight: bold;
+            color: #444;
+            margin-bottom: 5px;
+        }
+
+        .product-desc {
+            font-size: 9px;
+            color: #777;
+            margin-bottom: 10px;
+            flex-grow: 1;
+        }
+
+        .product-price {
+            font-size: 14px;
+            color: #df181e;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .add-to-cart {
+            display: flex;
+            align-items: center;
+            background: #df181e;
+            color: #fff;
+            border: none;
+            padding: 6px 12px;
+            font-size: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            width: max-content;
+            margin-bottom: 15px;
+        }
+
+        .add-to-cart span {
+            background: #fff;
+            color: #df181e;
+            padding: 2px 4px;
+            margin-right: 8px;
+        }
+
+        .add-to-cart:hover {
+            background: #ba1216;
+        }
+
+        .product-actions {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+            font-size: 9px;
+            font-weight: bold;
+        }
+
+        .product-actions a {
+            color: #df181e;
+            text-decoration: none;
+        }
+
+        .product-actions a:hover {
+            text-decoration: underline;
+        }
+
+        /* Promotional Banners at Bottom */
+        .bottom-banners {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 20px;
+            border: 1px solid #e5e5e5;
+            padding: 15px;
+            background: #fff;
+        }
+
+        .brand-text {
+            color: #00a1e4;
+            font-weight: bold;
+            font-style: italic;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .brand-text small {
+            font-size: 10px;
+            display: block;
+        }
+
+        .brand-logo {
+            font-size: 20px;
+            font-style: italic;
+            font-weight: bold;
+            color: #0b5fa4;
+        }
+
+        /* Footer Section */
+        .main-footer {
+            background: #02263d;
+            color: #79a1b9;
+            padding-top: 45px;
+        }
+
+        .footer-grid {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .footer-col {
+            flex: 1;
+            margin-right: 20px;
+        }
+
+        .footer-col h4 {
+            color: #ffffff;
+            font-size: 12px;
+            margin-bottom: 15px;
+        }
+
+        .footer-col p {
+            font-size: 11px;
+            margin-bottom: 8px;
+            color: #ffffff;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            border-top: 1px solid #083c5e;
+        }
+
+        .footer-col ul li {
+            border-bottom: 1px solid #083c5e;
+        }
+
+        .footer-col ul li a {
+            color: #8dbacc;
+            text-decoration: none;
+            display: block;
+            padding: 8px 0;
+            font-size: 11px;
+        }
+
+        .footer-col ul li a:hover {
+            color: #ffffff;
+        }
+
+        .contact-col .phone {
+            font-size: 13px;
+            margin: 15px 0;
+        }
+
+        .social-icons {
+            margin-top: 15px;
+        }
+
+        .social-icons .icon {
+            display: inline-block;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+
+        .newsletter-col p {
+            color: #8dbacc;
+        }
+
+        .newsletter-col input {
+            width: 100%;
+            padding: 8px;
+            border: none;
+            margin-bottom: 25px;
+        }
+
+        .payment-icons {
+            background: #fff;
+            padding: 5px;
+            display: inline-block;
+        }
+
+        .footer-bottom {
+            background: #011827;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 11px;
+            margin-top: 40px;
+            color: #79a1b9;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <div class="container flex-between">
+                <div class="support-text">Call for Customer support: <span class="highlight">020 38089066</span></div>
+                <div class="top-links">
+                    <a href="#">My Account</a>
+                    <a href="#">Wishlist</a>
+                    <a href="#">To Checkout</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Header -->
+        <header class="main-header">
+            <div class="container header-content">
+                <div class="logo">
+                    <h1><span class="logo-hotspring">HOTSPRING</span><sup>&reg;</sup><br><span
+                            class="logo-spas">Portable Spas</span></h1>
+                </div>
+                <div class="top-menu-cart-container">
+                    <div class="cart-dropdown">
+                        <span class="cart-icon">🛒</span> My Cart : 1 item (s) <span>&#9662;</span>
+                    </div>
+                    <ul class="top-nav">
+                        <li><a href="#" class="active">HOME</a></li>
+                        <li><a href="#">PRODUCTS</a></li>
+                        <li><a href="#">SPECIAL OFFERS</a></li>
+                        <li><a href="#">CUSTOMERS</a></li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+        <!-- Red Navigation -->
+        <nav class="main-nav">
+            <div class="container flex-between">
+                <ul class="nav-links">
+                    <li><a href="#">CATAGORY &nbsp; |</a></li>
+                    <li><a href="#">BRAND &nbsp; |</a></li>
+                    <li><a href="#">INFO</a></li>
+                </ul>
+                <div class="search-bar">
+                    <input type="text" placeholder="Search...">
+                    <button class="search-btn">SEARCH</button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Banner -->
+        <div class="hero">
+            <div class="hero-content">
+                <h2>Barrier Reef 158 Jet<br>TV- Stereo - Home Theater<br>Supter Spa</h2>
+                <p>Extra Large and Deep. 8 Person<br>158 Jet Supper Spa, TV-Home Theater Spa System,</p>
+                <div class="hero-price">$4899.00</div>
+                <button class="btn-red" id="heroBtn">More Details</button>
+            </div>
+            <div class="slider-dots">
+                <div class="dot active"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+        </div>
+
+        <!-- 3 Promos beneath hero -->
+        <div class="promo-banners">
+            <div class="promo promo-1">
+                <h3>5-7 PERSON<br>SPA</h3>
+                <p>THIS IS PHOTOSHOP'S VERSION OF LOREM IPSUM. PROIN<br>GRAVIDA NIBH VEL VELIT AUCTOR.</p>
+                <div style="font-size: 50px; position: absolute; right: 10px; top: 15px; opacity: 0.5;">🛁</div>
+            </div>
+            <div class="promo promo-2">
+                <h3>TV THEATER SPA</h3>
+                <p>THIS IS PHOTOSHOP'S VERSION OF LOREM IPSUM. PROIN</p>
+                <div style="font-size: 50px; position: absolute; right: 10px; top: 15px; opacity: 0.5;">📺</div>
+            </div>
+            <div class="promo promo-3">
+                <h3>SAVE<br><small>50%</small></h3>
+                <p>THIS IS PHOTOSHOP'S VERSION OF LOREM IPSUM. PROIN<br>GRAVIDA NIBH VEL VELIT AUCTOR.</p>
+            </div>
+        </div>
+
+        <!-- Main Content (Products) -->
+        <main class="main-content">
+            <h2 class="section-title">NEW PRODUCTS</h2>
+
+            <div class="product-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-image-placeholder">🛁</div>
+                    <div class="product-title">XS SCYBA X SERIES 119</div>
+                    <div class="product-desc">The goods of our stores are very reliable and durable. we care about the
+                        customer</div>
+                    <div class="product-price">$500.00</div>
+                    <button class="add-to-cart"><span>🛒</span> ADD TO CART</button>
+                    <div class="product-actions">
+                        <a href="#">ADD TO WISH LIST</a>
+                        <a href="#">MORE DETAILS</a>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-image-placeholder" style="color:#d4a373;">🛁</div>
+                    <div class="product-title">XS SCYBA X SERIES 119</div>
+                    <div class="product-desc">The goods of our stores are very reliable and durable. we care about the
+                        customer</div>
+                    <div class="product-price">$500.00</div>
+                    <button class="add-to-cart"><span>🛒</span> ADD TO CART</button>
+                    <div class="product-actions">
+                        <a href="#">ADD TO WISH LIST</a>
+                        <a href="#">MORE DETAILS</a>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-image-placeholder" style="color:#a8dadc;">🛁</div>
+                    <div class="product-title">XS SCYBA X SERIES 119</div>
+                    <div class="product-desc">The goods of our stores are very reliable and durable. we care about the
+                        customer</div>
+                    <div class="product-price">$500.00</div>
+                    <button class="add-to-cart"><span>🛒</span> ADD TO CART</button>
+                    <div class="product-actions">
+                        <a href="#">ADD TO WISH LIST</a>
+                        <a href="#">MORE DETAILS</a>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <div class="product-image-placeholder" style="color:#0077b6;">🛁</div>
+                    <div class="product-title">XS SCYBA X SERIES 119</div>
+                    <div class="product-desc">The goods of our stores are very reliable and durable. we care about the
+                        customer</div>
+                    <div class="product-price">$500.00</div>
+                    <button class="add-to-cart"><span>🛒</span> ADD TO CART</button>
+                    <div class="product-actions">
+                        <a href="#">ADD TO WISH LIST</a>
+                        <a href="#">MORE DETAILS</a>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product-card">
+                    <div class="product-image-placeholder" style="color:#e0e1dd;">🛁</div>
+                    <div class="product-title">XS SCYBA X SERIES 119</div>
+                    <div class="product-desc">The goods of our stores are very reliable and durable. we care about the
+                        customer</div>
+                    <div class="product-price">$500.00</div>
+                    <button class="add-to-cart"><span>🛒</span> ADD TO CART</button>
+                    <div class="product-actions">
+                        <a href="#">ADD TO WISH LIST</a>
+                        <a href="#">MORE DETAILS</a>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product-card">
+                    <div class="product-image-placeholder" style="color:#bc6c25;">🛁</div>
+                    <div class="product-title">XS SCYBA X SERIES 119</div>
+                    <div class="product-desc">The goods of our stores are very reliable and durable. we care about the
+                        customer</div>
+                    <div class="product-price">$500.00</div>
+                    <button class="add-to-cart"><span>🛒</span> ADD TO CART</button>
+                    <div class="product-actions">
+                        <a href="#">ADD TO WISH LIST</a>
+                        <a href="#">MORE DETAILS</a>
+                    </div>
+                </div>
+
+                <!-- Product 7 -->
+                <div class="product-card">
+                    <div class="product-image-placeholder" style="color:#4a4e69;">🛁</div>
+                    <div class="product-title">XS SCYBA X SERIES 119</div>
+                    <div class="product-desc">The goods of our stores are very reliable and durable. we care about the
+                        customer</div>
+                    <div class="product-price">$500.00</div>
+                    <button class="add-to-cart"><span>🛒</span> ADD TO CART</button>
+                    <div class="product-actions">
+                        <a href="#">ADD TO WISH LIST</a>
+                        <a href="#">MORE DETAILS</a>
+                    </div>
+                </div>
+
+                <!-- Product 8 -->
+                <div class="product-card">
+                    <div class="product-image-placeholder" style="color:#023e8a;">🛁</div>
+                    <div class="product-title">XS SCYBA X SERIES 119</div>
+                    <div class="product-desc">The goods of our stores are very reliable and durable. we care about the
+                        customer</div>
+                    <div class="product-price">$500.00</div>
+                    <button class="add-to-cart"><span>🛒</span> ADD TO CART</button>
+                    <div class="product-actions">
+                        <a href="#">ADD TO WISH LIST</a>
+                        <a href="#">MORE DETAILS</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Brands Banner at bottom -->
+            <div class="bottom-banners">
+                <div class="brand-text">SAVE $1,000'S<br><small>ON THE TOP SPA BRANDS</small></div>
+                <div class="brand-logo" style="color:#00a1e4;">OceanicSpa</div>
+                <div class="brand-logo" style="color:#f26e32;">CalderaSpas</div>
+                <div class="brand-logo" style="color:#63b646;">IslandSpas</div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="main-footer">
+            <div class="container footer-grid">
+                <div class="footer-col contact-col">
+                    <h4>CONTACT US</h4>
+                    <p>yoursitename.com</p>
+                    <p class="phone">CALL 24/7: 888 - 201 -8899</p>
+                    <p>Your Address,<br>Street<br>State &amp; Zip Code<br>City &amp; Country</p>
+                    <p>Email: service@yoursitename.com</p>
+                    <div class="social-icons">
+                        <span class="icon" style="background: #55acee;"></span>
+                        <span class="icon" style="background: #3b5998;"></span>
+                        <span class="icon" style="background: #007ab9;"></span>
+                        <span class="icon" style="background: #dd4b39;"></span>
+                        <span class="icon" style="background: #bb0000;"></span>
+                        <span class="icon" style="background: #cb2027;"></span>
+                    </div>
+                </div>
+
+                <div class="footer-col link-col">
+                    <h4>INFORMATION</h4>
+                    <ul>
+                        <li><a href="#">ABOUT US</a></li>
+                        <li><a href="#">CUSTOMER SERVICE</a></li>
+                        <li><a href="#">PRIVACY POLICY</a></li>
+                        <li><a href="#">SITE MAP</a></li>
+                        <li><a href="#">SEARCH TERMS</a></li>
+                        <li><a href="#">CONTACT US</a></li>
+                        <li><a href="#">ABOUT US!</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col link-col">
+                    <h4>MY ACCOUNT</h4>
+                    <ul>
+                        <li><a href="#">SIGN IN</a></li>
+                        <li><a href="#">VIEW CART</a></li>
+                        <li><a href="#">MY WISHLIST</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col newsletter-col">
+                    <h4>SIGNUP FOR A NEWSLETTER</h4>
+                    <p>SIGN UP FOR OUR NEWSLETTER:</p>
+                    <input type="text" placeholder="">
+
+                    <h4 class="mt-2">PAYMENT SOLUTIONS</h4>
+                    <div class="payment-icons">
+                        <span class="card" style="font-size:24px;">💳</span>
+                        <span class="card" style="font-size:24px;">💳</span>
+                        <span class="card" style="font-size:24px;">💳</span>
+                        <span class="card" style="font-size:24px;">💳</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="container">
+                    &copy; 2014 Hotspringspaservice.com. All Rights Reserved.
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JavaScript code -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+            // 1. Add to Cart Interactivity
+            const addToCartBtns = document.querySelectorAll(".add-to-cart");
+            const cartItemsDisplay = document.querySelector(".cart-dropdown");
+            let cartCount = 1; // Starting at 1 item as shown in the top header
+
+            addToCartBtns.forEach(btn => {
+                btn.addEventListener("click", () => {
+                    cartCount++;
+                    cartItemsDisplay.innerHTML = `<span class="cart-icon">🛒</span> My Cart : ${cartCount} items (s) <span>&#9662;</span>`;
+                    alert("Item added to cart!");
+                });
+            });
+
+            // 2. Search Button
+            const searchBtn = document.querySelector(".search-btn");
+            const searchInput = document.querySelector(".search-bar input");
+
+            if (searchBtn && searchInput) {
+                searchBtn.addEventListener("click", () => {
+                    const query = searchInput.value.trim();
+                    if (query) {
+                        alert(`Searching for: ${query}`);
+                    } else {
+                        alert("Please enter a clear search term.");
+                    }
+                });
+            }
+
+            // 3. Hero Button interactivity
+            const heroBtn = document.getElementById("heroBtn");
+            if (heroBtn) {
+                heroBtn.addEventListener("click", () => {
+                    console.log("Viewing more details of the hero item...");
+                    alert("Redirecting to the Barrier Reef 158 detail page...");
+                });
+            }
+
+            // 4. Slider Dots Interactivity
+            const dots = document.querySelectorAll('.slider-dots .dot');
+            dots.forEach(dot => {
+                dot.addEventListener('click', function () {
+                    // Remove active from all dots
+                    dots.forEach(d => d.classList.remove('active'));
+                    // Add active to clicked dot
+                    this.classList.add('active');
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

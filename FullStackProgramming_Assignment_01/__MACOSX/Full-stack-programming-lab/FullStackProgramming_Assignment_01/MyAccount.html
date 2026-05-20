@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile Details</title>
+
+    <style>
+        /* CSS Reset & General Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #333;
+            line-height: 1.6;
+            /* Simulated water background from the image */
+            background: #e1e9ed url('https://images.unsplash.com/photo-1542385151-efd9000785a0?q=80&w=2689&auto=format&fit=crop') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .page-wrapper {
+            max-width: 960px;
+            margin: 0 auto;
+            background: #ffffff;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .container {
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        .flex-between {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Top bar */
+        .top-bar {
+            background: #fdfdfd;
+            font-size: 11px;
+            padding: 8px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .support-text .highlight {
+            color: #df181e;
+            font-weight: bold;
+        }
+
+        .top-links a {
+            color: #666;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        .top-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main Header */
+        .main-header {
+            padding: 25px 0;
+            background: #ffffff;
+        }
+
+        .logo-hotspring {
+            font-size: 26px;
+            color: #2b3952;
+            letter-spacing: 1px;
+        }
+
+        .logo-spas {
+            font-size: 12px;
+            color: #df181e;
+            text-transform: uppercase;
+            font-weight: normal;
+            padding-left: 60px;
+        }
+
+        .logo sup {
+            font-size: 10px;
+            color: #555;
+        }
+
+        .cart {
+            display: flex;
+            align-items: center;
+        }
+
+        .cart-dropdown {
+            border: 1px solid #d4d4d4;
+            padding: 6px 12px;
+            font-size: 11px;
+            color: #444;
+            cursor: pointer;
+            background: #fcfcfc;
+            min-width: 150px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-icon {
+            color: #df181e;
+            font-size: 14px;
+            margin-right: 5px;
+        }
+
+        /* Navigation */
+        .main-nav {
+            background: #df181e;
+            color: #ffffff;
+            border-bottom: 3px solid #b81216;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px 15px 10px 0;
+            display: block;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .search-bar {
+            display: flex;
+        }
+
+        .search-bar input {
+            padding: 8px 10px;
+            border: 1px solid #ffffff;
+            outline: none;
+            width: 250px;
+            font-size: 11px;
+        }
+
+        .search-btn {
+            background: #404040;
+            color: #ffffff;
+            border: none;
+            padding: 8px 15px;
+            cursor: pointer;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        /* Page Body */
+        .main-content {
+            background: #ffffff;
+            padding-bottom: 40px;
+        }
+
+        .breadcrumbs {
+            font-size: 11px;
+            padding: 15px 0;
+            color: #666;
+        }
+
+        .breadcrumbs a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .page-title {
+            font-size: 22px;
+            margin-bottom: 25px;
+            color: #222;
+        }
+
+        /* Profile Layout Area */
+        .profile-container {
+            background: #f5f5f5;
+            padding: 20px 30px;
+        }
+
+        .section-title {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .profile-section {
+            padding-bottom: 25px;
+            margin-bottom: 30px;
+        }
+
+        .profile-text {
+            font-size: 11px;
+            color: #000;
+        }
+        
+        .profile-text a {
+            color: #0066cc;
+            text-decoration: underline;
+        }
+
+        /* Table Styles */
+        .orders-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 11px;
+            margin-top: 15px;
+        }
+
+        .orders-table th {
+            text-align: left;
+            padding: 10px 0;
+            font-weight: normal;
+            color: #333;
+            border-bottom: 1px solid #d4d4d4;
+        }
+
+        .orders-table th.right-align,
+        .orders-table td.right-align {
+            text-align: right;
+        }
+
+        .orders-table td {
+            padding: 15px 0;
+            border-bottom: 1px solid #e0e0e0;
+            color: #000;
+        }
+
+        .orders-table a.order-id {
+            color: #0066cc;
+            text-decoration: underline;
+        }
+
+        .btn-red-small {
+            background: #df181e;
+            color: #fff;
+            border: none;
+            padding: 6px 12px;
+            font-size: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        .btn-red-small:hover {
+            background: #ba1216;
+        }
+
+        /* Address Layout */
+        .address-grid {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            border-top: 1px solid #d4d4d4;
+            padding-top: 25px;
+        }
+
+        .address-box {
+            width: 48%;
+        }
+
+        .address-title {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .address-details {
+            font-size: 11px;
+            line-height: 1.5;
+            color: #000;
+            margin-bottom: 20px;
+        }
+
+        /* Promotional Banners */
+        .brands-banner {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 30px;
+            border: 1px solid #e5e5e5;
+            padding: 15px;
+        }
+
+        .brand {
+            color: #00a1e4;
+            font-weight: bold;
+            font-style: italic;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .brand small {
+            font-size: 10px;
+            display: block;
+        }
+
+        .brand-logo {
+            font-size: 20px;
+            font-style: italic;
+            font-weight: bold;
+            color: #0b5fa4;
+        }
+
+        /* Footer Section */
+        .main-footer {
+            background: #02263d;
+            color: #79a1b9;
+            padding-top: 45px;
+        }
+
+        .footer-grid {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .footer-col {
+            flex: 1;
+            margin-right: 20px;
+        }
+
+        .footer-col h4 {
+            color: #ffffff;
+            font-size: 12px;
+            margin-bottom: 15px;
+        }
+
+        .footer-col p {
+            font-size: 11px;
+            margin-bottom: 8px;
+            color: #ffffff;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            border-top: 1px solid #083c5e;
+        }
+
+        .footer-col ul li {
+            border-bottom: 1px solid #083c5e;
+        }
+
+        .footer-col ul li a {
+            color: #8dbacc;
+            text-decoration: none;
+            display: block;
+            padding: 8px 0;
+            font-size: 11px;
+        }
+
+        .footer-col ul li a:hover {
+            color: #ffffff;
+        }
+
+        .contact-col .phone {
+            font-size: 13px;
+            margin: 15px 0;
+        }
+
+        .social-icons {
+            margin-top: 15px;
+        }
+
+        .social-icons .icon {
+            display: inline-block;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+
+        .newsletter-col p {
+            color: #8dbacc;
+        }
+
+        .newsletter-col input {
+            width: 100%;
+            padding: 8px;
+            border: none;
+            margin-bottom: 25px;
+        }
+
+        .payment-icons {
+            background: #fff;
+            padding: 5px;
+            display: inline-block;
+        }
+
+        .footer-bottom {
+            background: #011827;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 11px;
+            margin-top: 40px;
+            color: #79a1b9;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <div class="container flex-between">
+                <div class="support-text">Call for Customer support: <span class="highlight">020 38089066</span></div>
+                <div class="top-links">
+                    <a href="#">My Account</a>
+                    <a href="#">Wishlist</a>
+                    <a href="#">To Checkout</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Header -->
+        <header class="main-header">
+            <div class="container flex-between align-center">
+                <div class="logo">
+                    <!-- Text-based approximation of the logo -->
+                    <h1><span class="logo-hotspring">HOTSPRING</span><sup>&reg;</sup><br><span
+                            class="logo-spas">Portable Spas</span></h1>
+                </div>
+                <div class="cart">
+                    <div class="cart-dropdown">
+                        <div>
+                            <span class="cart-icon">🛒</span> My Cart : 0 items (s)
+                        </div>
+                        <span>&#9662;</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="main-nav">
+            <div class="container flex-between">
+                <ul class="nav-links">
+                    <li><a href="#">CATAGORY &nbsp; |</a></li>
+                    <li><a href="#">BRAND &nbsp; |</a></li>
+                    <li><a href="#">INFO</a></li>
+                </ul>
+                <div class="search-bar">
+                    <input type="text" placeholder="">
+                    <button class="search-btn">SEARCH</button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content container">
+            <div class="breadcrumbs">
+                <a href="#">Home</a> &raquo; <a href="#">User Account</a> &raquo; <span>My Account</span>
+            </div>
+
+            <h1 class="page-title">User Profile Details</h1>
+
+            <div class="profile-container">
+                <!-- User Profile Section -->
+                <div class="profile-section">
+                    <h2 class="section-title">User profile</h2>
+                    <p class="profile-text">
+                        Hello User name! From your account you can view your recent orders, manage your shipping and billing address.<br>
+                        <a href="#">edit your password and account details.</a>
+                    </p>
+                </div>
+
+                <!-- Recent Orders Section -->
+                <div class="profile-section">
+                    <h2 class="section-title">Recent Orders</h2>
+                    <table class="orders-table">
+                        <thead>
+                            <tr>
+                                <th>Order</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th>Total</th>
+                                <th class="right-align">Options</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><a href="#" class="order-id">#303</a></td>
+                                <td>December 18, 2014</td>
+                                <td>On hold</td>
+                                <td>$ 699.00</td>
+                                <td class="right-align"><button class="btn-red-small btn-view-order">VIEW ORDERS</button></td>
+                            </tr>
+                            <tr>
+                                <td><a href="#" class="order-id">#307</a></td>
+                                <td>December 18, 2014</td>
+                                <td>On hold</td>
+                                <td>$ 799.00</td>
+                                <td class="right-align"><button class="btn-red-small btn-view-order">VIEW ORDERS</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- My Addresses Section -->
+                <div class="profile-section" style="margin-bottom: 0px; padding-bottom: 0px;">
+                    <h2 class="section-title" style="margin-bottom: 25px;">My Addresses</h2>
+                    <p class="profile-text">The following addresses will be used on the checkout page by default.</p>
+
+                    <div class="address-grid">
+                        <!-- Billing Address 1 -->
+                        <div class="address-box">
+                            <h3 class="address-title">Billing address</h3>
+                            <div class="address-details">
+                                Farrukh Jawad<br>
+                                Hottub Spas<br>
+                                Plot 10 Tech Society<br>
+                                California, CA 20112<br>
+                                United State
+                            </div>
+                            <button class="btn-red-small btn-edit-address">EDIT ADDRESS</button>
+                        </div>
+                        
+                        <!-- Billing Address 2 (As per mockup, usually this is Shipping) -->
+                        <div class="address-box">
+                            <h3 class="address-title">Billing address</h3>
+                            <div class="address-details">
+                                Farrukh Jawad<br>
+                                Hottub Spas<br>
+                                Plot 10 Tech Society<br>
+                                California, CA 20112<br>
+                                United State
+                            </div>
+                            <button class="btn-red-small btn-edit-address">EDIT ADDRESS</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Brands Banner Placeholder -->
+            <div class="brands-banner">
+                <div class="brand">SAVE $1,000'S<br><small>ON THE TOP SPA BRANDS</small></div>
+                <div class="brand-logo">OceanicSpa</div>
+                <div class="brand-logo" style="color:#f26e32;">CalderaSpas</div>
+                <div class="brand-logo" style="color:#63b646;">IslandSpas</div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="main-footer">
+            <div class="container footer-grid">
+                <div class="footer-col contact-col">
+                    <h4>CONTACT US</h4>
+                    <p>yoursitename.com</p>
+                    <p class="phone">CALL 24/7: 888 - 201 -8899</p>
+                    <p>Your Address,<br>Street<br>State &amp; Zip Code<br>City &amp; Country</p>
+                    <p>Email: service@yoursitename.com</p>
+                    <div class="social-icons">
+                        <span class="icon" style="background: #55acee;"></span> <!-- Twitter -->
+                        <span class="icon" style="background: #3b5998;"></span> <!-- FB -->
+                        <span class="icon" style="background: #007ab9;"></span> <!-- LI -->
+                        <span class="icon" style="background: #dd4b39;"></span> <!-- G+ -->
+                        <span class="icon" style="background: #bb0000;"></span> <!-- YT -->
+                        <span class="icon" style="background: #cb2027;"></span> <!-- Pinterest -->
+                    </div>
+                </div>
+
+                <div class="footer-col link-col">
+                    <h4>INFORMATION</h4>
+                    <ul>
+                        <li><a href="#">ABOUT US</a></li>
+                        <li><a href="#">CUSTOMER SERVICE</a></li>
+                        <li><a href="#">PRIVACY POLICY</a></li>
+                        <li><a href="#">SITE MAP</a></li>
+                        <li><a href="#">SEARCH TERMS</a></li>
+                        <li><a href="#">CONTACT US</a></li>
+                        <li><a href="#">ABOUT US!</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col link-col">
+                    <h4>MY ACCOUNT</h4>
+                    <ul>
+                        <li><a href="#">SIGN IN</a></li>
+                        <li><a href="#">VIEW CART</a></li>
+                        <li><a href="#">MY WISHLIST</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col newsletter-col">
+                    <h4>SIGNUP FOR A NEWSLETTER</h4>
+                    <p>SIGN UP FOR OUR NEWSLETTER:</p>
+                    <input type="text" placeholder="">
+
+                    <h4 class="mt-2" style="margin-top: 20px;">PAYMENT SOLUTIONS</h4>
+                    <div class="payment-icons">
+                        <!-- Payment method placeholders -->
+                        <span class="card" style="font-size:24px;">💳</span>
+                        <span class="card" style="font-size:24px;">💳</span>
+                        <span class="card" style="font-size:24px;">💳</span>
+                        <span class="card" style="font-size:24px;">💳</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="container">
+                    &copy; 2014 Hotspringspaservice.com. All Rights Reserved.
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JavaScript code -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            
+            // View Order Buttons Interactivity
+            const viewOrderBtns = document.querySelectorAll(".btn-view-order");
+            viewOrderBtns.forEach(btn => {
+                btn.addEventListener("click", function() {
+                    // Navigate up to find the TR and get the first column's a tag text
+                    const tr = this.closest("tr");
+                    if (tr) {
+                        const orderIdNode = tr.querySelector(".order-id");
+                        if (orderIdNode) {
+                            const orderId = orderIdNode.textContent;
+                            alert(`Loading details for order ${orderId}...`);
+                            console.log(`User clicked to view order: ${orderId}`);
+                            return;
+                        }
+                    }
+                    alert("Loading order details...");
+                });
+            });
+
+            // Edit Address Buttons Interactivity
+            const editAddressBtns = document.querySelectorAll(".btn-edit-address");
+            editAddressBtns.forEach(btn => {
+                btn.addEventListener("click", () => {
+                    alert("Redirecting to edit address form...");
+                    console.log("User clicked edit address.");
+                });
+            });
+            
+            // Edit Password/Account Details Link
+            const editAccountLinks = document.querySelectorAll(".profile-text a");
+            editAccountLinks.forEach(link => {
+                link.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    alert("Opening account details settings...");
+                });
+            });
+            
+            // Order ID Links
+            const orderLinks = document.querySelectorAll(".order-id");
+            orderLinks.forEach(link => {
+                link.addEventListener("click", (e) => {
+                    e.preventDefault();
+                    alert(`Loading timeline for order ${e.target.textContent}...`);
+                });
+            });
+            
+            // Search Button
+            const searchBtn = document.querySelector(".search-btn");
+            const searchInput = document.querySelector(".search-bar input");
+
+            if(searchBtn && searchInput) {
+                searchBtn.addEventListener("click", () => {
+                    const query = searchInput.value.trim();
+                    if(query) {
+                        alert(`Searching across user data for: ${query}`);
+                    } else {
+                        alert("Please enter a term to search.");
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

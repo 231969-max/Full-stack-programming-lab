@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic Quiz</title>
+    <link rel="stylesheet" href="quiz.css">
+</head>
+<body>
+
+<div class="quiz-container">
+
+    <h1>✨ Dynamic Quiz</h1>
+
+    <div class="question">
+        <label>1. HTML stands for?</label>
+        <input id="q1" placeholder="Type your answer">
+    </div>
+
+    <div class="question">
+        <label>2. CSS is used for?</label>
+        <input id="q2" placeholder="Type your answer">
+    </div>
+
+    <div class="question">
+        <label>3. JavaScript is?</label>
+        <input id="q3" placeholder="Type your answer">
+    </div>
+
+    <div class="buttons">
+        <button class="submit" onclick="checkQuiz()">Submit</button>
+        <button class="reset" onclick="resetQuiz()">Reset</button>
+    </div>
+
+    <p id="result"></p>
+
+</div>
+
+<script src="quiz.js"></script>
+</body>
+</html>

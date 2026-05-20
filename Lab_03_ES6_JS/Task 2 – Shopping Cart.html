@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Shopping Cart</h2>
+<p id="cart"></p>
+
+<script>
+function addToCart(...items){
+let cart=[...items];
+let [first,...rest]=cart;
+
+document.getElementById("cart").innerHTML =
+`Total:${cart.length}<br>First:${first}<br>Others:${rest}`;
+}
+addToCart("Shoes","Bag","Watch","Phone");
+</script>
+</body>
+</html>

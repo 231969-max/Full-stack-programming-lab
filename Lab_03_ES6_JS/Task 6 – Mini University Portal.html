@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Mini University Portal</h2>
+<p id="portal"></p>
+
+<script>
+class Student{constructor(id,name){this.id=id;this.name=name;}}
+
+let students=new Map();
+students.set(1,new Student(1,"Areej"));
+
+let courses=new Set(["AI","Web"]);
+
+function save(){
+return new Promise(res=>setTimeout(()=>res("Saved!"),2000));
+}
+
+save().then(msg=>{
+document.getElementById("portal").innerHTML=
+`Students:${students.size}<br>Courses:${courses.size}<br>${msg}`;
+});
+</script>
+</body>
+</html>

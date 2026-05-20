@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - Emerald Bay XL TV DVD</title>
+
+    <style>
+        /* CSS Reset & General Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background: #e1e9ed url('https://images.unsplash.com/photo-1542385151-efd9000785a0?q=80&w=2689&auto=format&fit=crop') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .page-wrapper {
+            max-width: 960px;
+            margin: 0 auto;
+            background: #ffffff;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .container {
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        .flex-between {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Top bar */
+        .top-bar {
+            background: #fdfdfd;
+            font-size: 11px;
+            padding: 8px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .support-text .highlight {
+            color: #df181e;
+            font-weight: bold;
+        }
+
+        .top-links a {
+            color: #666;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        .top-links a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main Header */
+        .main-header {
+            padding: 25px 0;
+            background: #ffffff;
+        }
+
+        .logo-hotspring {
+            font-size: 26px;
+            color: #2b3952;
+            letter-spacing: 1px;
+        }
+
+        .logo-spas {
+            font-size: 12px;
+            color: #df181e;
+            text-transform: uppercase;
+            font-weight: normal;
+            padding-left: 60px;
+        }
+
+        .logo sup {
+            font-size: 10px;
+            color: #555;
+        }
+
+        .cart {
+            display: flex;
+            align-items: center;
+        }
+
+        .cart-dropdown {
+            border: 1px solid #d4d4d4;
+            padding: 6px 12px;
+            font-size: 11px;
+            color: #444;
+            cursor: pointer;
+            background: #fcfcfc;
+            min-width: 150px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-icon {
+            color: #df181e;
+            font-size: 14px;
+            margin-right: 5px;
+        }
+
+        /* Navigation */
+        .main-nav {
+            background: #df181e;
+            color: #ffffff;
+            border-bottom: 3px solid #b81216;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px 15px 10px 0;
+            display: block;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .search-bar {
+            display: flex;
+        }
+
+        .search-bar input {
+            padding: 8px 10px;
+            border: 1px solid #ffffff;
+            outline: none;
+            width: 250px;
+            font-size: 11px;
+        }
+
+        .search-btn {
+            background: #404040;
+            color: #ffffff;
+            border: none;
+            padding: 8px 15px;
+            cursor: pointer;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        /* Main Content General */
+        .main-content {
+            background: #ffffff;
+            padding: 30px 0 40px 0;
+        }
+
+        .product-header {
+            border-bottom: 1px solid #e5e5e5;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .product-title-main {
+            font-size: 20px;
+            color: #1a416b;
+            margin-bottom: 5px;
+        }
+
+        .product-meta {
+            font-size: 9px;
+            color: #888;
+        }
+
+        /* Layout Grid */
+        .product-layout {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .product-left {
+            width: 63%;
+        }
+
+        .product-right {
+            width: 33%;
+        }
+
+        /* Left Side: Product Image Gallery */
+        .product-gallery {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .main-img-display {
+            width: 100%;
+            height: 350px;
+            border: 1px solid #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 120px;
+            color: #ccc;
+            margin-bottom: 10px;
+            background: #f9f9f9;
+        }
+
+        .roll-over-text {
+            font-size: 9px;
+            color: #888;
+            margin-bottom: 10px;
+        }
+
+        .thumbnails {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        .thumb {
+            width: 60px;
+            height: 60px;
+            border: 1px solid #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            cursor: pointer;
+            background: #fff;
+        }
+
+        .thumb.active {
+            border: 2px solid #0066cc;
+        }
+
+        .larger-view {
+            font-size: 10px;
+            color: #0066cc;
+            text-decoration: none;
+        }
+        .larger-view:hover {
+            text-decoration: underline;
+        }
+
+        /* Left Side: Product Tabs */
+        .product-tabs {
+            margin-top: 30px;
+        }
+
+        .tab-headers {
+            display: flex;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .tab-btn {
+            padding: 10px 20px;
+            background: none;
+            border: 1px solid transparent;
+            border-bottom: none;
+            cursor: pointer;
+            font-size: 11px;
+            font-weight: bold;
+            color: #555;
+            margin-right: 5px;
+            border-radius: 2px 2px 0 0;
+        }
+
+        .tab-btn.active {
+            background: #fff;
+            border-color: #ddd;
+            border-bottom: 1px solid #fff;
+            color: #000;
+            margin-bottom: -1px;
+        }
+
+        .tab-content {
+            border: 1px solid #ddd;
+            border-top: none;
+            padding: 20px;
+            font-size: 10px;
+            color: #444;
+            line-height: 1.6;
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .tab-content h4 {
+            font-size: 11px;
+            color: #000;
+            margin-bottom: 5px;
+            margin-top: 15px;
+        }
+        
+        .tab-content h4:first-child {
+            margin-top: 0;
+        }
+
+        .tab-content h3 {
+            font-size: 16px;
+            color: #1a416b;
+            margin: 15px 0 10px 0;
+        }
+
+        /* Right Side: Product Info */
+        .product-info-box {
+            margin-bottom: 25px;
+        }
+
+        .ratings {
+            font-size: 13px;
+            color: #ff9900;
+            margin-bottom: 15px;
+        }
+        .ratings a {
+            font-size: 10px;
+            color: #0066cc;
+            text-decoration: none;
+            margin-left: 5px;
+        }
+
+        .prices {
+            margin-bottom: 15px;
+        }
+
+        .retail-price {
+            font-size: 10px;
+            color: #777;
+        }
+
+        .sale-label {
+            font-size: 11px;
+            color: #df181e;
+            font-weight: bold;
+        }
+
+        .sale-price {
+            font-size: 22px;
+            color: #df181e;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .low-price-guarantee {
+            font-size: 10px;
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .specs-list {
+            font-size: 10px;
+            color: #333;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .specs-list strong {
+            color: #000;
+            font-size: 11px;
+        }
+        
+        .specs-list div {
+            margin-bottom: 8px;
+        }
+
+        .stock-info {
+            font-size: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .stock-info span {
+            color: #0066cc;
+        }
+
+        .btn-red {
+            background: #df181e;
+            color: #ffffff;
+            border: none;
+            padding: 8px 15px;
+            font-size: 11px;
+            font-weight: bold;
+            cursor: pointer;
+            text-align: center;
+        }
+        .btn-red:hover { background: #ba1216; }
+
+        /* Right Side: Price Calculator */
+        .price-calculator {
+            border: 1px solid #d4d4d4;
+            padding: 15px;
+            margin-bottom: 25px;
+            background: #fdfdfd;
+        }
+
+        .price-calculator h3 {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+
+        .calc-form-group {
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .calc-form-group label {
+            font-size: 10px;
+            color: #555;
+            width: 60%;
+        }
+
+        .calc-form-group select, 
+        .calc-form-group input {
+            width: 35%;
+            padding: 3px;
+            font-size: 10px;
+            border: 1px solid #ccc;
+        }
+
+        .calc-total {
+            text-align: center;
+            border-top: 1px solid #eee;
+            margin-top: 15px;
+            padding-top: 15px;
+            font-size: 12px;
+            color: #333;
+        }
+
+        .calc-total strong {
+            color: #df181e;
+            font-size: 14px;
+        }
+
+        .calc-btn-container {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        /* Right Side: Download Resources */
+        .download-resources {
+            border: 1px solid #d4d4d4;
+            padding: 15px;
+            background: #fdfdfd;
+        }
+        
+        .download-resources h3 {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+
+        .resource-list {
+            list-style: none;
+            font-size: 10px;
+        }
+
+        .resource-list li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+
+        .resource-list a {
+            color: #0066cc;
+            text-decoration: underline;
+            margin-left: 5px;
+        }
+
+        .adobe-reader-img {
+            margin-top: 15px;
+            width: 80px;
+            height: 25px;
+            background: #eee;
+            border: 1px solid #ccc;
+            text-align: center;
+            line-height: 25px;
+            font-size: 8px;
+            font-weight: bold;
+            color: #df181e;
+        }
+
+        /* Related Products Carousel */
+        .related-products {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        .related-products h3 {
+            font-size: 13px;
+            margin-bottom: 20px;
+            color: #000;
+        }
+
+        .carousel {
+            display: flex;
+            align-items: center;
+        }
+
+        .carousel-btn {
+            background: none;
+            border: none;
+            font-size: 28px;
+            color: #0066cc;
+            cursor: pointer;
+            padding: 0 10px;
+            font-weight: bold;
+        }
+
+        .product-list {
+            display: flex;
+            justify-content: space-between;
+            flex: 1;
+        }
+
+        .product-item {
+            text-align: left;
+            font-size: 11px;
+            width: 22%;
+            display: flex;
+            align-items: center;
+            border: 1px solid transparent; /* Just to maintain structure */
+        }
+
+        .product-img-placeholder {
+            width: 60px;
+            height: 60px;
+            background: #f9f9f9;
+            border: 1px solid #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            margin-right: 10px;
+        }
+
+        .prod-info-mini {
+            flex: 1;
+        }
+
+        .prod-price {
+            color: #df181e;
+            font-weight: bold;
+            font-size: 11px;
+        }
+
+        .prod-desc {
+            color: #555;
+            margin: 2px 0;
+            font-size: 9px;
+            line-height: 1.2;
+        }
+
+        .prod-id {
+            color: #0066cc;
+            text-decoration: underline;
+            font-size: 8px;
+        }
+
+        /* Promotional Banners */
+        .brands-banner {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 30px;
+            border: 1px solid #e5e5e5;
+            padding: 15px;
+        }
+
+        .brand {
+            color: #00a1e4;
+            font-weight: bold;
+            font-style: italic;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .brand small {
+            font-size: 10px;
+            display: block;
+        }
+
+        .brand-logo {
+            font-size: 20px;
+            font-style: italic;
+            font-weight: bold;
+            color: #0b5fa4;
+        }
+
+        /* Footer Section */
+        .main-footer {
+            background: #02263d;
+            color: #79a1b9;
+            padding-top: 45px;
+        }
+
+        .footer-grid {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .footer-col {
+            flex: 1;
+            margin-right: 20px;
+        }
+
+        .footer-col h4 {
+            color: #ffffff;
+            font-size: 12px;
+            margin-bottom: 15px;
+        }
+
+        .footer-col p {
+            font-size: 11px;
+            margin-bottom: 8px;
+            color: #ffffff;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            border-top: 1px solid #083c5e;
+        }
+
+        .footer-col ul li {
+            border-bottom: 1px solid #083c5e;
+        }
+
+        .footer-col ul li a {
+            color: #8dbacc;
+            text-decoration: none;
+            display: block;
+            padding: 8px 0;
+            font-size: 11px;
+        }
+
+        .footer-col ul li a:hover {
+            color: #ffffff;
+        }
+
+        .contact-col .phone {
+            font-size: 13px;
+            margin: 15px 0;
+        }
+
+        .social-icons {
+            margin-top: 15px;
+        }
+
+        .social-icons .icon {
+            display: inline-block;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+
+        .newsletter-col p {
+            color: #8dbacc;
+        }
+
+        .newsletter-col input {
+            width: 100%;
+            padding: 8px;
+            border: none;
+            margin-bottom: 25px;
+        }
+
+        .payment-icons {
+            background: #fff;
+            padding: 5px;
+            display: inline-block;
+        }
+
+        .footer-bottom {
+            background: #011827;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 11px;
+            margin-top: 40px;
+            color: #79a1b9;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <div class="container flex-between">
+                <div class="support-text">Call for Customer support: <span class="highlight">020 38089066</span></div>
+                <div class="top-links">
+                    <a href="#">My Account</a>
+                    <a href="#">Wishlist</a>
+                    <a href="#">To Checkout</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Header -->
+        <header class="main-header">
+            <div class="container flex-between align-center">
+                <div class="logo">
+                    <!-- Text-based approximation of the logo -->
+                    <h1><span class="logo-hotspring">HOTSPRING</span><sup>&reg;</sup><br><span
+                            class="logo-spas">Portable Spas</span></h1>
+                </div>
+                <div class="cart">
+                    <div class="cart-dropdown">
+                        <div>
+                            <span class="cart-icon">🛒</span> My Cart : 0 items (s)
+                        </div>
+                        <span>&#9662;</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="main-nav">
+            <div class="container flex-between">
+                <ul class="nav-links">
+                    <li><a href="#">CATAGORY &nbsp; |</a></li>
+                    <li><a href="#">BRAND &nbsp; |</a></li>
+                    <li><a href="#">INFO</a></li>
+                </ul>
+                <div class="search-bar">
+                    <input type="text" placeholder="">
+                    <button class="search-btn">SEARCH</button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content container">
+            
+            <div class="product-header">
+                <h1 class="product-title-main">Emerald Bay XL TV DVD Stereo Hot Tub with 90 Jets</h1>
+                <div class="product-meta">AM Model #E7SZ92B0XNS | UPC Code : 825225968728</div>
+            </div>
+
+            <div class="product-layout">
+                <!-- Left Column (Images and Tabs) -->
+                <div class="product-left">
+                    <div class="product-gallery">
+                        <div class="main-img-display" id="mainImage">🛁</div>
+                        <div class="roll-over-text">Roll over image to zoom in</div>
+                        <div class="thumbnails">
+                            <div class="thumb active" onclick="changeImage(this, '🛁')">🛁</div>
+                            <div class="thumb" onclick="changeImage(this, '🔧')">🔧</div>
+                            <div class="thumb" onclick="changeImage(this, '🎛️')">🎛️</div>
+                            <div class="thumb" onclick="changeImage(this, '🌊')" style="background: #0077b6; color:white;">🌊</div>
+                        </div>
+                        <a href="#" class="larger-view">+ Larger View</a>
+                    </div>
+
+                    <div class="product-tabs">
+                        <div class="tab-headers">
+                            <button class="tab-btn active" onclick="openTab(event, 'details')">Details</button>
+                            <button class="tab-btn" onclick="openTab(event, 'specs')">Quick Specs</button>
+                            <button class="tab-btn" onclick="openTab(event, 'accessories')">Accessories</button>
+                            <button class="tab-btn" onclick="openTab(event, 'reviews')">Reviews</button>
+                            <button class="tab-btn" onclick="openTab(event, 'qa')">Q & A</button>
+                        </div>
+                        
+                        <!-- Tab Contents -->
+                        <div id="details" class="tab-content active">
+                            <h4>Product Details</h4>
+                            <p style="margin-bottom: 10px;">Enery Star Rated - No</p>
+                            
+                            <h3>Emerald Bay XL TV DVD Stereo Hot Tub with 90 Jets</h3>
+                            <p style="margin-bottom: 10px;">The Hottub E22C530SNS<br>store</p>
+                            
+                            <p style="margin-bottom: 10px;">
+                                This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit mauris egestas quam, ut aliquam massa nisl quis neque. Suspendisse in orci enim.This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum.
+                            </p>
+                            <p style="margin-bottom: 10px;">
+                                nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit mauris egestas quam, ut aliquam massa nisl quis neque. Suspendisse in orci enim.This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a
+                            </p>
+                            <p>
+                                odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit mauris egestas quam, ut aliquam massa nisl quis neque. Suspendisse in orci enim.This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra.
+                            </p>
+                        </div>
+                        
+                        <div id="specs" class="tab-content">
+                            <h4>Quick Specs</h4>
+                            <p>Product specifications will be detailed here.</p>
+                        </div>
+                        
+                        <div id="accessories" class="tab-content">
+                            <h4>Accessories</h4>
+                            <p>Compatible accessories for this product.</p>
+                        </div>
+                        
+                        <div id="reviews" class="tab-content">
+                            <h4>Customer Reviews</h4>
+                            <p>Read all 14 reviews from verified buyers.</p>
+                        </div>
+                        
+                        <div id="qa" class="tab-content">
+                            <h4>Questions & Answers</h4>
+                            <p>Have a question? Ask our community.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column (Info, Calculator, DLs) -->
+                <div class="product-right">
+                    <div class="product-info-box">
+                        <div class="ratings">⭐⭐⭐⭐⭐ <a href="#">(14 reviews)</a></div>
+                        
+                        <div class="prices">
+                            <div class="retail-price">Retail Price: <strike>$2100.00</strike></div>
+                            <div class="sale-label">Sale price</div>
+                            <div class="sale-price">$1979.00</div>
+                            <a href="#" class="low-price-guarantee">Low Price Guarantee</a>
+                        </div>
+                        
+                        <div class="specs-list">
+                            <div><strong>Size/Seating Capicity</strong><br>7'1", 7'1", 32" / 6 Persons</div>
+                            <div><strong>Seating Design</strong><br>Bucket, Lounge, Chair, Bench</div>
+                            <div><strong>Water Capacity / Dry Weight</strong><br>300 Gallons / 573 lbs</div>
+                            <div><strong>Number of Pumps</strong><br>2 X 5HP</div>
+                            <div><strong>Electrical</strong><br>5.5 KW Heavy Heater, 220V, 50 amp (ETL Certificate)</div>
+                        </div>
+                        
+                        <div class="stock-info">
+                            IN STOCK <span>(available)</span>
+                        </div>
+                        
+                        <button class="btn-red" style="padding: 10px 20px;" onclick="alert('Item Added to Cart!')"><span style="font-size: 14px; margin-right: 5px; background: white; color: red; border-radius: 50%; width: 16px; height: 16px; display: inline-block; line-height: 16px;">+</span> ADD TO CART</button>
+                    </div>
+
+                    <!-- Price Calculator Box -->
+                    <div class="price-calculator">
+                        <h3>Price Calculator</h3>
+                        
+                        <div class="calc-form-group">
+                            <label>Interior Color:</label>
+                            <select><option></option></select>
+                        </div>
+                        <div class="calc-form-group">
+                            <label>Outside Shell Color:</label>
+                            <select><option></option></select>
+                        </div>
+                        <div class="calc-form-group">
+                            <label>Circulation Pump:</label>
+                            <select><option></option></select>
+                        </div>
+                        <div class="calc-form-group">
+                            <label>Polar Foam:</label>
+                            <select><option></option></select>
+                        </div>
+                        <div class="calc-form-group">
+                            <label>Cover / Steps:</label>
+                            <select><option></option></select>
+                        </div>
+                        <div class="calc-form-group">
+                            <label>Extra Filter Sets:</label>
+                            <select><option></option></select>
+                        </div>
+                        <div class="calc-form-group">
+                            <label>Deluxe Cover Lifter:</label>
+                            <select><option></option></select>
+                        </div>
+                        <div class="calc-form-group">
+                            <label>Salt Water Sanitation System:</label>
+                            <select><option></option></select>
+                        </div>
+                        <div class="calc-form-group">
+                            <label>TV/DVD/Entertainment:</label>
+                            <select><option></option></select>
+                        </div>
+                        <div class="calc-form-group">
+                            <label>Backyard Delivery:</label>
+                            <select><option></option></select>
+                        </div>
+                        <div class="calc-form-group">
+                            <label>Jets:</label>
+                            <select><option></option></select>
+                        </div>
+                        <div class="calc-form-group">
+                            <label>Perimeter Lighting:</label>
+                            <select><option></option></select>
+                        </div>
+                        <div class="calc-form-group">
+                            <label>Premium Popup Speakers:</label>
+                            <select><option></option></select>
+                        </div>
+                        <div class="calc-form-group">
+                            <label>Waterfall:</label>
+                            <select><option></option></select>
+                        </div>
+                        <div class="calc-form-group">
+                            <label>Spa Surround:</label>
+                            <select><option></option></select>
+                        </div>
+                        <div class="calc-form-group">
+                            <label>Quantity:</label>
+                            <input type="number" value="1" min="1">
+                        </div>
+                        
+                        <div class="calc-total">
+                            Total Price: <strong>$650.00</strong>
+                        </div>
+                        
+                        <div class="calc-btn-container">
+                            <button class="btn-red" onclick="alert('Configuration Added to Cart with total $650.00')"><span style="font-size: 14px; margin-right: 5px; background: white; color: red; border-radius: 50%; width: 14px; height: 14px; display: inline-block; line-height: 14px;">+</span> ADD TO CART</button>
+                        </div>
+                    </div>
+
+                    <!-- Download Resources Box -->
+                    <div class="download-resources">
+                        <h3>Download Resources</h3>
+                        <ul class="resource-list">
+                            <li>📄 <a href="#">Full Line Brochure</a></li>
+                            <li>📄 <a href="#">Owner's Manual</a></li>
+                            <li>📄 <a href="#">Specifications Sheet</a></li>
+                        </ul>
+                        <div class="adobe-reader-img">GET ADOBE READER</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Related Products -->
+            <div class="related-products">
+                <h3>Customers Who Viewed This Item Also</h3>
+                <div class="carousel">
+                    <button class="carousel-btn prev-btn">&lang;</button>
+                    <div class="product-list">
+                        <!-- Product Item 1 -->
+                        <div class="product-item">
+                            <div class="product-img-placeholder">🛁</div>
+                            <div class="prod-info-mini">
+                                <div class="prod-price">$2,549.15</div>
+                                <div class="prod-desc">Bosch 22 Cu. Ft Stainless Refrigerator</div>
+                                <div class="prod-id">8Z0G53XNSS</div>
+                            </div>
+                        </div>
+                        <!-- Product Item 2 -->
+                        <div class="product-item">
+                            <div class="product-img-placeholder">🛁</div>
+                            <div class="prod-info-mini">
+                                <div class="prod-price">$2,549.15</div>
+                                <div class="prod-desc">Bosch 22 Cu. Ft Stainless Refrigerator</div>
+                                <div class="prod-id">8Z0G53XNSS</div>
+                            </div>
+                        </div>
+                        <!-- Product Item 3 -->
+                        <div class="product-item">
+                            <div class="product-img-placeholder">🛁</div>
+                            <div class="prod-info-mini">
+                                <div class="prod-price">$2,549.15</div>
+                                <div class="prod-desc">Bosch 22 Cu. Ft Stainless Refrigerator</div>
+                                <div class="prod-id">8Z0G53XNSS</div>
+                            </div>
+                        </div>
+                        <!-- Product Item 4 -->
+                        <div class="product-item">
+                            <div class="product-img-placeholder">🛁</div>
+                            <div class="prod-info-mini">
+                                <div class="prod-price">$2,549.15</div>
+                                <div class="prod-desc">Bosch 22 Cu. Ft Stainless Refrigerator</div>
+                                <div class="prod-id">8Z0G53XNSS</div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-btn next-btn">&rang;</button>
+                </div>
+            </div>
+
+            <!-- Brands Banner Placeholder -->
+            <div class="brands-banner">
+                <div class="brand">SAVE $1,000'S<br><small>ON THE TOP SPA BRANDS</small></div>
+                <div class="brand-logo">OceanicSpa</div>
+                <div class="brand-logo" style="color:#f26e32;">CalderaSpas</div>
+                <div class="brand-logo" style="color:#63b646;">IslandSpas</div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="main-footer">
+            <div class="container footer-grid">
+                <div class="footer-col contact-col">
+                    <h4>CONTACT US</h4>
+                    <p>yoursitename.com</p>
+                    <p class="phone">CALL 24/7: 888 - 201 -8899</p>
+                    <p>Your Address,<br>Street<br>State &amp; Zip Code<br>City &amp; Country</p>
+                    <p>Email: service@yoursitename.com</p>
+                    <div class="social-icons">
+                        <span class="icon" style="background: #55acee;"></span> <!-- Twitter -->
+                        <span class="icon" style="background: #3b5998;"></span> <!-- FB -->
+                        <span class="icon" style="background: #007ab9;"></span> <!-- LI -->
+                        <span class="icon" style="background: #dd4b39;"></span> <!-- G+ -->
+                        <span class="icon" style="background: #bb0000;"></span> <!-- YT -->
+                        <span class="icon" style="background: #cb2027;"></span> <!-- Pinterest -->
+                    </div>
+                </div>
+
+                <div class="footer-col link-col">
+                    <h4>INFORMATION</h4>
+                    <ul>
+                        <li><a href="#">ABOUT US</a></li>
+                        <li><a href="#">CUSTOMER SERVICE</a></li>
+                        <li><a href="#">PRIVACY POLICY</a></li>
+                        <li><a href="#">SITE MAP</a></li>
+                        <li><a href="#">SEARCH TERMS</a></li>
+                        <li><a href="#">CONTACT US</a></li>
+                        <li><a href="#">ABOUT US!</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col link-col">
+                    <h4>MY ACCOUNT</h4>
+                    <ul>
+                        <li><a href="#">SIGN IN</a></li>
+                        <li><a href="#">VIEW CART</a></li>
+                        <li><a href="#">MY WISHLIST</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col newsletter-col">
+                    <h4>SIGNUP FOR A NEWSLETTER</h4>
+                    <p>SIGN UP FOR OUR NEWSLETTER:</p>
+                    <input type="text" placeholder="">
+
+                    <h4 class="mt-2" style="margin-top: 20px;">PAYMENT SOLUTIONS</h4>
+                    <div class="payment-icons">
+                        <!-- Payment method placeholders -->
+                        <span class="card" style="font-size:24px;">💳</span>
+                        <span class="card" style="font-size:24px;">💳</span>
+                        <span class="card" style="font-size:24px;">💳</span>
+                        <span class="card" style="font-size:24px;">💳</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="container">
+                    &copy; 2014 Hotspringspaservice.com. All Rights Reserved.
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JavaScript code -->
+    <script>
+        // Tab functionality
+        function openTab(evt, tabName) {
+            var i, tabContent, tabBtns;
+            
+            // Hide all tab contents
+            tabContent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabContent.length; i++) {
+                tabContent[i].style.display = "none";
+                tabContent[i].classList.remove("active");
+            }
+            
+            // Remove active class from all tab buttons
+            tabBtns = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tabBtns.length; i++) {
+                tabBtns[i].classList.remove("active");
+            }
+            
+            // Show current tab and add active class to button
+            document.getElementById(tabName).style.display = "block";
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+
+        // Image Gallery functionality
+        function changeImage(element, content) {
+            // Update main display
+            document.getElementById("mainImage").innerHTML = content;
+            
+            // Update active state on thumbnails
+            var thumbs = document.getElementsByClassName("thumb");
+            for (var i = 0; i < thumbs.length; i++) {
+                thumbs[i].classList.remove("active");
+            }
+            element.classList.add("active");
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            // Search Button Hook
+            const searchBtn = document.querySelector(".search-btn");
+            const searchInput = document.querySelector(".search-bar input");
+
+            if(searchBtn && searchInput) {
+                searchBtn.addEventListener("click", () => {
+                    const query = searchInput.value.trim();
+                    if(query) {
+                        alert(`Searching products for: ${query}`);
+                    }
+                });
+            }
+
+            // Carousel dummy functionality
+            const prevBtn = document.querySelector(".prev-btn");
+            const nextBtn = document.querySelector(".next-btn");
+            if (prevBtn && nextBtn) {
+                prevBtn.addEventListener("click", () => console.log("Slide Left"));
+                nextBtn.addEventListener("click", () => console.log("Slide Right"));
+            }
+            
+            // Prevent default link actions for demo placeholders
+            const dummyLinks = document.querySelectorAll('a[href="#"]');
+            dummyLinks.forEach(link => {
+                link.addEventListener('click', (e) => e.preventDefault());
+            });
+        });
+    </script>
+</body>
+
+</html>
