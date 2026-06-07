@@ -625,3 +625,128 @@ body {
   font-weight: 700;
   line-height: 1;
 }
+
+/* =========================================================================
+   MEDIA QUERIES FOR RESPONSIVE/MOBILE VIEWS
+   ========================================================================= */
+@media (max-width: 992px) {
+  .layout-wrapper {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    border-right: none;
+    border-bottom: 1px solid var(--border-glass);
+    padding: 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .sidebar-logo {
+    margin-bottom: 0;
+  }
+  
+  .sidebar-menu {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+  
+  .sidebar-item-link {
+    padding: 8px 14px;
+    font-size: 0.85rem;
+  }
+  
+  .sidebar-user {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+  }
+  
+  .sidebar-user-info {
+    flex-direction: column;
+  }
+  
+  .sidebar-user button {
+    width: auto !important;
+    margin-top: 0 !important;
+  }
+  
+  .main-content {
+    margin-left: 0;
+    padding: 20px;
+    width: 100%;
+  }
+  
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  
+  .page-header button {
+    width: 100%;
+  }
+  
+  .table-container {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: var(--radius-md);
+  }
+  
+  .styled-table {
+    min-width: 750px; /* Ensure table remains wide enough to read without squishing columns */
+  }
+}
+
+@media (max-width: 576px) {
+  .sidebar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .sidebar-logo {
+    justify-content: center;
+    margin-bottom: 15px;
+  }
+  
+  .sidebar-menu {
+    justify-content: center;
+  }
+  
+  .sidebar-user {
+    flex-direction: column;
+    align-items: stretch;
+    border-top: 1px solid var(--border-glass);
+    padding-top: 15px;
+  }
+  
+  .sidebar-user-info {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .stat-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .modal-content {
+    padding: 16px;
+    border-radius: var(--radius-md);
+  }
+}
+
