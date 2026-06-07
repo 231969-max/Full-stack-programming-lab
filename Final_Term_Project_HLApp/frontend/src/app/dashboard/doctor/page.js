@@ -145,7 +145,7 @@ export default function DoctorDashboard() {
         loadDoctorData();
       }
     } catch (err) {
-      showToast('Initiating treatment failed.', 'error');
+      showToast(err.response?.data?.message || 'Initiating treatment failed.', 'error');
     }
   };
 

@@ -132,7 +132,7 @@ exports.createTreatment = async (req, res) => {
     await appointment.save();
 
     // Fetch patient base user account for notification
-    const pProfile = await Patient.findById(appointment.patient).populate('user', '_id name');
+    const pProfile = await Patient.findById(appointment.patient._id).populate('user', '_id name');
     
     await createNotificationHelper(
       pProfile.user._id,
