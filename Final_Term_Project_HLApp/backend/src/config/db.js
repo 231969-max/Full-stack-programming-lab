@@ -5,7 +5,7 @@ const connectDB = async () => {
     const connStr = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/hlapp';
     console.log(`[Database] Connecting to MongoDB at ${connStr}...`);
     
-    const conn = await mongoose.connect(connStr);
+    const conn = await mongoose.connect(connStr, { serverSelectionTimeoutMS: 2000 });
     
     console.log(`[Database] MongoDB Connected successfully: ${conn.connection.host}`);
     global.useMockDb = false;

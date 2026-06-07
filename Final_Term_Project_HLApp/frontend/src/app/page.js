@@ -47,8 +47,8 @@ export default function LandingPage() {
           fontWeight: '800',
           lineHeight: '1.1',
           background: 'linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, var(--color-primary) 100%)',
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
           marginBottom: '20px',
           letterSpacing: '-0.02em'
         }}>

@@ -60,20 +60,24 @@ const startServer = async () => {
     console.log(`[Server] Environment: ${process.env.NODE_ENV || 'development'}`);
     
     // Check if database needs seeding
-    try {
-      const userCount = await User.countDocuments();
-      if (userCount === 0) {
-        console.log('\n===============================================================');
-        console.log('   [TIP] The database is currently empty!');
-        console.log('   To seed 1 Admin, 15 Doctors, and 15 Patients automatically,');
-        console.log('   run the following command in a new terminal inside backend:');
-        console.log('   -->  npm run seed');
-        console.log('===============================================================\n');
-      } else {
-        console.log(`[Database Info] Verified records present. Current user count: ${userCount}`);
+    if (!global.useMockDb) {
+      try {
+        const userCount = await User.countDocuments();
+        if (userCount === 0) {
+          console.log('\n===============================================================');
+          console.log('   [TIP] The database is currently empty!');
+          console.log('   To seed 1 Admin, 15 Doctors, and 15 Patients automatically,');
+          console.log('   run the following command in a new terminal inside backend:');
+          console.log('   -->  npm run seed');
+          console.log('===============================================================\n');
+        } else {
+          console.log(`[Database Info] Verified records present. Current user count: ${userCount}`);
+        }
+      } catch (err) {
+        console.warn(`[Database Warning] Could not check record counts: ${err.message}`);
       }
-    } catch (err) {
-      console.warn(`[Database Warning] Could not check record counts: ${err.message}`);
+    } else {
+      console.log(`[Database Info] Mock Database Seeding Complete! Preloaded 15 Doctors & 15 Patients in-memory.`);
     }
   });
 };

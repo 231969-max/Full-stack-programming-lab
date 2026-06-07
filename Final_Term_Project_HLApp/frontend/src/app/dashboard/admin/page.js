@@ -15,6 +15,12 @@ export default function AdminDashboard() {
   const [appointments, setAppointments] = useState([]);
   const [activeTab, setActiveTab] = useState('doctors'); // doctors, patients, appointments
 
+  // Formatting date helper
+  const formatDate = (dateStr) => {
+    if (!dateStr) return '';
+    return new Date(dateStr).toLocaleDateString(undefined, { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' });
+  };
+
   // Doctor Modal Form States
   const [docModalOpen, setDocModalOpen] = useState(false);
   const [docEditingId, setDocEditingId] = useState(null); // null means adding, string means editing
